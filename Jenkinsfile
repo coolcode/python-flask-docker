@@ -20,6 +20,7 @@ pipeline {
                     sh "pip3 install -r requirements.txt"
                     sh "nohup gunicorn --workers 3 -t 30 --graceful-timeout 60 --bind :8000 -m 007 application:app > gunicorn.log 2>&1 &"
                 }
+                sh "cat gunicorn.log"
             }
         }
     }
