@@ -1,4 +1,7 @@
 pipeline {
+    agent {
+        label "master"
+    }
     environment {
         ORG         = 'jenkinsxio'
         APP_NAME    = 'builder-python'
@@ -9,7 +12,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                container('jx-base') {
+                container('python') {
                     sh "docker-compose up --build -d"
                 }
             }
