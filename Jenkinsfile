@@ -7,14 +7,13 @@ pipeline {
         APP_NAME    = 'builder-python'
     }
     stages {
-        stage('CI Build and Docker Run') {
+        stage('Docker Deploy') {
             when {
                 branch 'master'
             }
             steps {
-                container('python') {
-                    sh "docker-compose up --build -d"
-                }
+                echo 'Deploying....'
+                sh "docker-compose up --build -d"
             }
         }
     }
