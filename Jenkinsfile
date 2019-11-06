@@ -13,7 +13,12 @@ pipeline {
             }
             steps {
                 echo 'Deploying....'
-                sh "docker-compose up --build -d"
+                sh "pwd"
+                sh "python3 -V"
+                sh "python3 -m venv venv"
+                sh "source ./venv/bin/activate"
+                sh "pip3 install -r requirements.txt"
+                sh "nohup gunicorn --workers 3 -t 30 --graceful-timeout 60 --bind :8080 -m 007 application:app > gunicorn.log 2>&1 &"
             }
         }
     }
