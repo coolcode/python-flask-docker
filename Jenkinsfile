@@ -1,7 +1,4 @@
 pipeline {
-    //agent {
-    //    label "jenkins-jx-base"
-    //}
     environment {
         ORG         = 'jenkinsxio'
         APP_NAME    = 'builder-python'
