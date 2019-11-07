@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "aws"
+        label "ec2"
     }
     environment {
         ORG         = 'blocktest'
