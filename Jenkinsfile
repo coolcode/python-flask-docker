@@ -21,7 +21,7 @@ pipeline {
                 withPythonEnv('python3') {
                     sh "python3 -V"
                     sh "python3 -m venv venv"
-                    sh "source ./venv/bin/activate"
+                    sh ". ./venv/bin/activate"
                     sh "pkill gunicorn || echo 'gunicorn was not running'"
                     sh "sleep 1"
                     sh "pip3 install -r requirements.txt"
