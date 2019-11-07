@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh "pwd"
-                sh "python3 -V"
+                sh "curl https://api.ipify.org"
                 withPythonEnv('python3') {
                     sh "python3 -V"
                     sh "pkill gunicorn || echo 'gunicorn was not running'"
