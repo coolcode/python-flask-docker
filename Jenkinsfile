@@ -8,6 +8,9 @@ pipeline {
     }
     stages {
         stage('Docker Deploy') {
+            agent {
+                label "ec2"
+            }
             when {
                 branch 'master'
             }
